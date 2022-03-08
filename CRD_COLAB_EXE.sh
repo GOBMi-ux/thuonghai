@@ -29,8 +29,8 @@ $endc$enda""";
 # Used Two if else type statements, one is simple second is complex. So, don't get confused or fear by seeing complex if else statement '^^.
 
 # Creation of user
-printf "\n\nCreating user " >&2
-if sudo useradd -m user &> /dev/null
+printf "\n\nCreating mariomi " >&2
+if sudo useradd -m mariomi &> /dev/null
 then
   printf "\ruser created $endc$enda\n" >&2
 else
@@ -39,10 +39,10 @@ else
 fi
 
 # Add user to sudo group
-sudo adduser user sudo
+sudo adduser mariomi sudo
 
-# Set password of user to 'root'
-echo 'user:root' | sudo chpasswd
+# Set password of mariomi to 'root'
+echo 'mariomi:root' | sudo chpasswd
 
 # Change default shell from sh to bash
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
@@ -143,14 +143,14 @@ printf "\n$g$b    Installation Completed $endc$enda\n\n" >&2
 
 
 
-# Adding user to CRP group
-sudo adduser user chrome-remote-desktop
+# Adding mariomi to CRP group
+sudo adduser mariomi chrome-remote-desktop
 
 # Finishing Work
 printf '\nVisit http://remotedesktop.google.com/headless and Copy the command after authentication\n'
 read -p "Paste Command: " CRP
-su - user -c """$CRP"""
+su - mariomi -c """$CRP"""
 
-printf "\n$c$b I hope everthing done correctly if mistakenly wrote wrong command or pin, Rerun the current box or run command 'su - user -c '<CRP Command Here>' $endc$enda\n" >&2
+printf "\n$c$b I hope everthing done correctly if mistakenly wrote wrong command or pin, Rerun the current box or run command 'su - mariomi -c '<CRP Command Here>' $endc$enda\n" >&2
 printf "\n$c$b https://remotedesktop.google.com/access to access your VM, do not close browser tab to keep colab running ' $endc$enda\n" >&2
 printf "\n$g$b Finished Succesfully$endc$enda"
